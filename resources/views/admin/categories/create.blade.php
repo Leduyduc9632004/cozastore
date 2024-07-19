@@ -4,6 +4,16 @@
 @endsection
 
 @section('content')
+
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <div class="mx-auto" style="width: 50%">
     <form method="POST" action="{{route('categories.store')}}">
       @csrf
@@ -12,7 +22,7 @@
           <input type="text" name="name" class="form-control" id="" >
         </div>
     
-        <button type="submit" onclick="return confirm('Thêm thành công')" class="btn btn-primary">Thêm</button>
+        <button type="submit" class="btn btn-primary">Thêm</button>
       </form>
 </div>
 @endsection

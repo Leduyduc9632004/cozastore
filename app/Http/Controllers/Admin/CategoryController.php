@@ -34,6 +34,7 @@ class CategoryController extends Controller
     {
         $data = $request->all();
         Category::query()->create($data);
+        return redirect()->route('categories.index')->with('success' , 'Thao tác thành công');
     }
 
     /**
@@ -60,7 +61,7 @@ class CategoryController extends Controller
     {
         $data = $request->all();
         $category->update($data);
-        return redirect()->route('categories.index')->with('success' , 'Cập nhật thành công');
+        return redirect()->route('categories.index')->with('success' , 'Thao tác thành công');
     }
 
     /**
@@ -70,6 +71,6 @@ class CategoryController extends Controller
     {
         
         $category->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success' , 'Thao tác thành công');
     }
 }

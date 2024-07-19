@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -22,7 +23,11 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:100',
+            'image' => ['image',Rule::requiredIf(empty(request('image_url')))],   
+            'price' => 'required|integer',
+            'description' => 'required',
+            'quantity' => 'required|integer',
         ];
     }
 }

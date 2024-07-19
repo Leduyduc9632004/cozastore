@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Cozastore Admin</div>
     </a>
 
     <!-- Divider -->
@@ -33,7 +33,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý danh mục</h6>
                 <a class="collapse-item" href="{{route('categories.index')}}">Danh sách danh mục</a>
-                <a class="collapse-item" href="">Thêm danh mục</a>
+                <a class="collapse-item" href="{{route('categories.create')}}">Thêm danh mục</a>
             </div>
         </div>
     </li>
@@ -46,8 +46,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý sản phẩm</h6>
-                <a class="collapse-item" href="">Danh sách sản phẩm</a>
-                <a class="collapse-item" href="">Thêm sản phẩm</a>
+                <a class="collapse-item" href="{{route('products.index')}}">Danh sách sản phẩm</a>
+                <a class="collapse-item" href="{{route('products.create')}}">Thêm sản phẩm</a>
             </div>
         </div>
     </li>

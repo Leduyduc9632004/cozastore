@@ -4,6 +4,15 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <div class="mx-auto" style="width: 50%">
     <form method="POST" action="{{route('categories.update',$category)}}">
         @method('PUT')
