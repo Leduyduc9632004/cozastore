@@ -1,48 +1,13 @@
 @extends('client.main')
 @section('title')
-    Home
+    Product
 @endsection
 @section('content')
-<!-- Slider -->
-<section class="section-slide">
-    <div class="wrap-slick1">
-        <div class="slick1">
-            <div class="item-slick1">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                        <img src="{{asset('theme/cozastore/images/banner-nam-1.jpg')}}" width="100%" alt="IMG-BANNER">
-                    </div>
-                </div>
-            </div>
-
-            <div class="item-slick1">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                        <img src="{{asset('theme/cozastore/images/banner-nam-2.jpg')}}" width="100%" alt="IMG-BANNER">
-                    </div>
-                </div>
-            </div>
-
-            <div class="item-slick1">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                        <img src="{{asset('theme/cozastore/images/banner-nam-3.jpg')}}" width="100%" alt="IMG-BANNER">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 {{-- product --}}
 <section class="bg0 p-t-23 p-b-140">
     <div class="container">
-        <div class="p-b-10">
-            <h3 class="ltext-103 cl5">
-                Product Overview
-            </h3>
-        </div>
 
-        <div class="flex-w flex-sb-m p-b-52">
+        <div class="flex-w flex-sb-m p-b-52 mt-5">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
                 <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
                     All Products
@@ -53,6 +18,7 @@
                     {{$category->name}}
                 </a>
                 @endforeach
+
 
                 
             </div>

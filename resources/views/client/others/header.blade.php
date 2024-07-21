@@ -33,7 +33,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="{{route('client.home')}}" class="logo">
 						<img src="{{asset('theme/cozastore/images/icons/logo-01.png')}}" alt="IMG-LOGO">
 					</a>
 
@@ -41,11 +41,11 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">Home</a>
+								<a href="{{route('client.home')}}">Home</a>
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="{{route('client.product')}}">Shop</a>
 							</li>
 
 							<li>
@@ -155,7 +155,7 @@
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="{{route('client.product')}}">Shop</a>
 				</li>
 
 				<li>

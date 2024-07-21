@@ -33,23 +33,23 @@ class HomeController extends Controller
                     break;
 
                 case 'price1':
-                    $listProducts = Product::whereBetween('price', [0, 100000])->orderBy('price', 'asc')->get();
+                    $listProducts = $this->filterPrice(0,100000);
                     break;
 
                 case 'price2':
-                    $listProducts = Product::whereBetween('price', [100000, 200000])->orderBy('price', 'asc')->get();
+                    $listProducts = $this->filterPrice(100000,200000);
                     break;
 
                 case 'price3':
-                    $listProducts = Product::whereBetween('price', [200000, 300000])->orderBy('price', 'asc')->get();
+                    $listProducts = $this->filterPrice(200000,300000);
                     break;
 
                 case 'price4':
-                    $listProducts = Product::whereBetween('price', [300000, 400000])->orderBy('price', 'asc')->get();
+                    $listProducts = $this->filterPrice(300000,400000);
                     break;
 
                 case 'price5':
-                    $listProducts = Product::whereBetween('price','=>',400000)->orderBy('price', 'asc')->get();
+                    $listProducts = Product::where('price','>=',400000)->orderBy('price', 'asc')->get();
                     break;
 
                 default:
@@ -58,5 +58,9 @@ class HomeController extends Controller
             }
         }
         return view('client.index', compact('listProducts', 'categories'));
+    }
+
+    private function filterPrice($min, $max) {
+        return Product::whereBetween('price', [$min, $max])->orderBy('price', 'asc')->get();
     }
 }
