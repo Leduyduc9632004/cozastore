@@ -14,7 +14,7 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="{{route('client.login')}}" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
 
@@ -58,6 +58,10 @@
 
 							<li>
 								<a href="contact.html">Contact</a>
+							</li>
+
+							<li>
+								<a href="{{route('client.login')}}">Login</a>
 							</li>
 						</ul>
 					</div>	

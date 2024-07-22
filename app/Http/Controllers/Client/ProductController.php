@@ -65,13 +65,11 @@ class ProductController extends Controller
 
     public function filterByCate(Request $request)
     {
-        $categories = Category::query()->get();
         $productsByCate = Product::query()->where('category_id', $request->id)->get();
         return view('client.filterCate', compact('productsByCate', 'categories'));
     }
 
     public function detailProduct(Request $request){
-        $categories = Category::query()->get();
         $product = Product::query()->with('variants')->where('id',$request->id)->first();
         $productRelate = Product::query()
         ->where('category_id',$product->category_id)

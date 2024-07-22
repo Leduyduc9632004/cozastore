@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Client\HomeController;
@@ -28,6 +29,10 @@ Route::resource('products', ProductController::class);
 
 // Route Client
 Route::get('/',[HomeController::class,'home'])->name('client.home');
-Route::get('/Product',[ClientProductController::class,'product'])->name('client.product');
-Route::get('/Product/{id}',[ClientProductController::class,'filterByCate'])->name('client.filterByCate');
-Route::get('/Product/detail/{id}',[ClientProductController::class,'detailProduct'])->name('client.detail-product');
+Route::get('/product',[ClientProductController::class,'product'])->name('client.product');
+Route::get('/product/{id}',[ClientProductController::class,'filterByCate'])->name('client.filterByCate');
+Route::get('/product/detail/{id}',[ClientProductController::class,'detailProduct'])->name('client.detail-product');
+Route::get('/login',[AccountController::class,'login'])->name('client.login');
+Route::post('/login',[AccountController::class,'confirmLogin'])->name('client.confirmLogin');
+Route::get('/register',[AccountController::class,'register'])->name('client.register');
+Route::post('/register',[AccountController::class,'confirmRegister'])->name('client.confirmRegister');
