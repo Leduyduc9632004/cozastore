@@ -19,20 +19,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Admin
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
-Route::resource('categories', CategoryController::class);
-Route::resource('products', ProductController::class);
+Route::get('/login-admin', [AccountController::class, 'loginAdmin'])->name('loginAdmin');
+Route::post('/login-admin', [AccountController::class, 'confirmLoginAdmin'])->name('confirmLoginAdmin');
+Route::get('/logout-admin', [AccountController::class, 'logoutAdmin'])->name('admin.logout');
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/', function () { return view('admin.dashboard');})->name('dashboard');
+    Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
+});
+
 
 
 
 // Route Client
-Route::get('/',[HomeController::class,'home'])->name('client.home');
-Route::get('/product',[ClientProductController::class,'product'])->name('client.product');
-Route::get('/product/{id}',[ClientProductController::class,'filterByCate'])->name('client.filterByCate');
-Route::get('/product/detail/{id}',[ClientProductController::class,'detailProduct'])->name('client.detail-product');
-Route::get('/login',[AccountController::class,'login'])->name('client.login');
-Route::post('/login',[AccountController::class,'confirmLogin'])->name('client.confirmLogin');
-Route::get('/register',[AccountController::class,'register'])->name('client.register');
-Route::post('/register',[AccountController::class,'confirmRegister'])->name('client.confirmRegister');
+Route::get('/', [HomeController::class, 'home'])->name('client.home');
+Route::get('/product', [ClientProductController::class, 'product'])->name('client.product');
+Route::get('/product/{id}', [ClientProductController::class, 'filterByCate'])->name('client.filterByCate');
+Route::get('/product/detail/{id}', [ClientProductController::class, 'detailProduct'])->name('client.detail-product');
+Route::get('/login', [AccountController::class, 'login'])->name('client.login');
+Route::post('/login', [AccountController::class, 'confirmLogin'])->name('client.confirmLogin');
+Route::get('/register', [AccountController::class, 'register'])->name('client.register');
+Route::post('/register', [AccountController::class, 'confirmRegister'])->name('client.confirmRegister');
+Route::get('/logout', [AccountController::class, 'logout'])->name('client.logout');

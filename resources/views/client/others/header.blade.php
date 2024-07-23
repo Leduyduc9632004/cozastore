@@ -10,6 +10,7 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
+						
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
@@ -59,10 +60,6 @@
 							<li>
 								<a href="contact.html">Contact</a>
 							</li>
-
-							<li>
-								<a href="{{route('client.login')}}">Login</a>
-							</li>
 						</ul>
 					</div>	
 
@@ -75,10 +72,16 @@
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
-
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
+						@if (Auth::check())
+						<p class="mx-2">Hello: {{Auth::user()->name}}</p>
+						<a href="{{route('client.logout')}}" class="flex-c-m trans-04 p-lr-25 text-dark" data-notify="0">
+							Log out
 						</a>
+						@else
+							<a href="{{route('client.login')}}" class="mx-2 text-dark">Login</a>
+						@endif
+						
+
 					</div>
 				</nav>
 			</div>	

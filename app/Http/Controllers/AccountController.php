@@ -34,5 +34,27 @@ class AccountController extends Controller
             return redirect()->route('client.login')->with('message','Đăng nhập thất bại, tài khoản hoặc mật khẩu không đúng');
         }
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->back();
+    }
+
+    public function loginAdmin(){
+        return view('admin.login');
+    }
+
+    public function confirmLoginAdmin(LoginRequest $request){
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => 1])) {
+            return redirect()->route('dashboard');
+        }else{
+            return redirect()->route('loginAdmin')->with('message','đăng nhập thất bại, tài khoản hoặc mật khẩu không đúng!');
+        }
+    }
+
+    public function logoutAdmin(){
+        Auth::logout();
+        return redirect()->back();
+    }
     
 }
