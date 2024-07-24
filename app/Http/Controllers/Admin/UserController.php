@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -13,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::query()->get();
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -21,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -29,7 +31,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        $user = $request->all();
+        User::query()->create($user);
+        return redirect()->route('users.index')->with('message','Thêm thành công');
     }
 
     /**
@@ -37,7 +41,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.users.show',compact('user'));
     }
 
     /**
@@ -45,7 +49,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -53,7 +57,9 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->all();
+        $user->update($data);
+        return redirect()->route('users.index')->with('message','Cập nhật thành công');
     }
 
     /**
@@ -61,6 +67,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('users.index')->with('message','Xóa thành công');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +31,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('sizes', SizeController::class);
     Route::resource('colors', ColorController::class);
+    Route::resource('users', UserController::class);
 });
-
-
 
 
 // Route Client
