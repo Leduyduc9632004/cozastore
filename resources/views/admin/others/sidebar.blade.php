@@ -60,8 +60,8 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý Màu sắc</h6>
-                <a class="collapse-item" href="">Danh sách Màu sắc</a>
-                <a class="collapse-item" href="">Thêm Màu sắc</a>
+                <a class="collapse-item" href="{{route('colors.index')}}">Danh sách Màu sắc</a>
+                <a class="collapse-item" href="{{route('colors.create')}}">Thêm Màu sắc</a>
             </div>
         </div>
     </li>
@@ -74,8 +74,8 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý sizes</h6>
-                <a class="collapse-item" href="">Danh sách sizes</a>
-                <a class="collapse-item" href="">Thêm sizes</a>
+                <a class="collapse-item" href="{{route('sizes.index')}}">Danh sách sizes</a>
+                <a class="collapse-item" href="{{route('sizes.create')}}">Thêm sizes</a>
             </div>
         </div>
     </li>

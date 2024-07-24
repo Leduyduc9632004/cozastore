@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
+use App\Http\Controllers\Admin\SizeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +28,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', function () { return view('admin.dashboard');})->name('dashboard');
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('sizes', SizeController::class);
+    Route::resource('colors', ColorController::class);
 });
 
 

@@ -97,7 +97,6 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        dd($product);
         $dataProduct = $request->except('image', 'variants');
         if ($request->hasFile('image')) {
             $dataProduct['image'] = Storage::put('uploads', $request->file('image'));

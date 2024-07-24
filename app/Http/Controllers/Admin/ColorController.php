@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Color;
 use App\Http\Requests\StoreColorRequest;
 use App\Http\Requests\UpdateColorRequest;
@@ -13,7 +14,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-        //
+        $colors = Color::query()->get();
+        return view('admin.colors.index', compact('colors'));
     }
 
     /**
@@ -21,7 +23,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.colors.create');
     }
 
     /**
@@ -29,7 +31,9 @@ class ColorController extends Controller
      */
     public function store(StoreColorRequest $request)
     {
-        //
+        $color = $request->all();
+        Color::query()->create($color);
+        return redirect()->route('colors.index')->with('message','Thêm thành công');
     }
 
     /**
@@ -37,7 +41,7 @@ class ColorController extends Controller
      */
     public function show(Color $color)
     {
-        //
+        return view('admin.colors.show',compact('color'));
     }
 
     /**
@@ -45,7 +49,7 @@ class ColorController extends Controller
      */
     public function edit(Color $color)
     {
-        //
+        return view('admin.colors.edit',compact('color'));
     }
 
     /**
@@ -53,7 +57,9 @@ class ColorController extends Controller
      */
     public function update(UpdateColorRequest $request, Color $color)
     {
-        //
+        $data = $request->all();
+        $color->update($data);
+        return redirect()->route('colors.index')->with('message','Cập nhật thành công');
     }
 
     /**
@@ -61,6 +67,7 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        //
+        $color->delete();
+        return redirect()->route('colors.index')->with('message','Xóa thành công');
     }
 }

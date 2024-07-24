@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Size;
 use App\Http\Requests\StoreSizeRequest;
 use App\Http\Requests\UpdateSizeRequest;
@@ -13,7 +14,8 @@ class SizeController extends Controller
      */
     public function index()
     {
-        //
+        $sizes = Size::query()->get();
+        return view('admin.sizes.index',compact('sizes'));
     }
 
     /**
@@ -21,7 +23,7 @@ class SizeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sizes.create');
     }
 
     /**
@@ -29,7 +31,9 @@ class SizeController extends Controller
      */
     public function store(StoreSizeRequest $request)
     {
-        //
+        $size = $request->all();
+        Size::query()->create($size);
+        return redirect()->route('sizes.index')->with('message','Thêm thành công');
     }
 
     /**
@@ -37,7 +41,7 @@ class SizeController extends Controller
      */
     public function show(Size $size)
     {
-        //
+        return view('admin.sizes.show',compact('size'));
     }
 
     /**
@@ -45,7 +49,7 @@ class SizeController extends Controller
      */
     public function edit(Size $size)
     {
-        //
+        return view('admin.sizes.edit',compact('size'));
     }
 
     /**
@@ -53,7 +57,9 @@ class SizeController extends Controller
      */
     public function update(UpdateSizeRequest $request, Size $size)
     {
-        //
+        $data = $request->all();
+        $size->update($data);
+        return redirect()->route('sizes.index')->with('message','Cập nhật thành công');
     }
 
     /**
@@ -61,6 +67,7 @@ class SizeController extends Controller
      */
     public function destroy(Size $size)
     {
-        //
+        $size->delete();
+        return redirect()->route('sizes.index')->with('message','Xóa thành công');
     }
 }
