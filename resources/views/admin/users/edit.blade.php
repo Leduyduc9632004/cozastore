@@ -15,9 +15,9 @@
     @endif
 
     <div class="container" style="width: 60%">
-        <form method="POST" action="{{ route('users.edit',$user) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('users.update',$user) }}">
             @csrf
-
+            @method('put')
             <div class="mb-3">
                 <label for="" class="form-label">name</label>
                 <input type="text" name="name" value="{{$user->name}}" class="form-control" id="">
@@ -52,8 +52,8 @@
             <div class="form-group">
                 <label for="my-select">role</label>
                 <select id="my-select" class="form-control" name="role">
-                    <option value="0">Member</option>
-                    <option value="1">Admin</option>
+                    <option value="member">Member</option>
+                    <option value="admin">Admin</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Cập nhật</button>

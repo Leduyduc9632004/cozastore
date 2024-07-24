@@ -48,8 +48,7 @@
                                 <td>{{ $user->role }}</td>
                                 <td>
                                     <a href="{{ route('users.edit',$user) }}" class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('users.destroy', $user) }}" class="d-inline"
-                                        method="post">
+                                    <form action="{{ route('users.destroy', $user) }}" class="d-inline" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">Delete</button>
