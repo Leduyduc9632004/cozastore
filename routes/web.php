@@ -8,6 +8,7 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +46,4 @@ Route::post('/login', [AccountController::class, 'confirmLogin'])->name('client.
 Route::get('/register', [AccountController::class, 'register'])->name('client.register');
 Route::post('/register', [AccountController::class, 'confirmRegister'])->name('client.confirmRegister');
 Route::get('/logout', [AccountController::class, 'logout'])->name('client.logout');
+Route::get('/blog',[BlogController::class,'blog'])->name('client.blog');

@@ -6,13 +6,13 @@
 
 @section('content')
 
-@if (session()->has('success'))
+@if (session()->has('message'))
     <div class="alert alert-success">
-        {{session()->get('success')}}
+        {{session()->get('message')}}
     </div>
 @endif
     <div class="container">
-        <a class="btn btn-success my-3" href="{{route('colors.create')}}">Thêm mới danh mục</a>
+        <a class="btn btn-success my-3" href="{{route('colors.create')}}">Thêm mới color</a>
 
     <table class="table">
         <tr>

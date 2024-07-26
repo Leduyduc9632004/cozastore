@@ -50,7 +50,7 @@
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="{{route('client.blog')}}">Blog</a>
 							</li>
 
 							<li>
