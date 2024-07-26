@@ -54,11 +54,11 @@
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="{{route('client.about')}}">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="{{route('client.contact')}}">Contact</a>
 							</li>
 						</ul>
 					</div>	

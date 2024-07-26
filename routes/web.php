@@ -48,3 +48,5 @@ Route::get('/register', [AccountController::class, 'register'])->name('client.re
 Route::post('/register', [AccountController::class, 'confirmRegister'])->name('client.confirmRegister');
 Route::get('/logout', [AccountController::class, 'logout'])->name('client.logout');
 Route::get('/blog',[BlogController::class,'blog'])->name('client.blog');
+Route::get('/about', function(){ return view('client.about'); })->name('client.about');
+Route::get('/contact', function(){ return view('client.contact'); })->name('client.contact');
