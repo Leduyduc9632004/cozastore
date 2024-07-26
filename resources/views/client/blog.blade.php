@@ -228,12 +228,12 @@
                             <ul>
                                 @foreach ($newProducts as $product )
                                 <li class="flex-w flex-t p-b-30">
-                                    <a href="#" class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
+                                    <a href="{{route('client.detail-product',$product->id)}}" class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
                                         <img src="{{asset('storage/'.$product->image)}}" width="80px" alt="PRODUCT">
                                     </a>
 
                                     <div class="size-215 flex-col-t p-t-8">
-                                        <a href="#" class="stext-116 cl8 hov-cl1 trans-04">
+                                        <a href="{{route('client.detail-product',$product->id)}}" class="stext-116 cl8 hov-cl1 trans-04">
                                             {{$product->name}}
                                         </a>
 

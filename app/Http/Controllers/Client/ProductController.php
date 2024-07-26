@@ -78,6 +78,6 @@ class ProductController extends Controller
         ->get();
         $sizes = Size::whereIn('id', $product->variants->pluck('size_id'))->get();
         $colors = Color::query()->whereIn('id',$product->variants->pluck('size_id'))->get();
-        return view('client.detail-product',compact('product','categories','sizes','colors','productRelate'));
+        return view('client.detail-product',compact('product','sizes','colors','productRelate'));
     }
 }
