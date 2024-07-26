@@ -39,6 +39,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 // Route Client
 Route::get('/', [HomeController::class, 'home'])->name('client.home');
 Route::get('/product', [ClientProductController::class, 'product'])->name('client.product');
+Route::get('/search', [ClientProductController::class, 'searchProducts'])->name('client.search');
 Route::get('/product/{id}', [ClientProductController::class, 'filterByCate'])->name('client.filterByCate');
 Route::get('/product/detail/{id}', [ClientProductController::class, 'detailProduct'])->name('client.detail-product');
 Route::get('/login', [AccountController::class, 'login'])->name('client.login');

@@ -11,8 +11,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function product(Request $request)
-    {
+    public function product(Request $request){
         $categories = Category::query()->get();
         $listProducts = Product::query()->latest('id')->get();
         if (isset($request->sortby)) {
@@ -63,8 +62,7 @@ class ProductController extends Controller
     }
 
 
-    public function filterByCate(Request $request)
-    {
+    public function filterByCate(Request $request){
         $categories = Category::query()->get();
         $productsByCate = Product::query()->where('category_id', $request->id)->get();
         return view('client.filterCate', compact('productsByCate', 'categories'));
@@ -79,5 +77,11 @@ class ProductController extends Controller
         $sizes = Size::whereIn('id', $product->variants->pluck('size_id'))->get();
         $colors = Color::query()->whereIn('id',$product->variants->pluck('size_id'))->get();
         return view('client.detail-product',compact('product','sizes','colors','productRelate'));
+    }
+
+    public function searchProducts(Request $request){
+        $categories = Category::query()->get();
+        $listProducts = Product::query()->where('name','like','%'.$request->keyword.'%')->orderBy('id','desc')->get();
+        return view('client.product',compact('listProducts','categories'));
     }
 }
